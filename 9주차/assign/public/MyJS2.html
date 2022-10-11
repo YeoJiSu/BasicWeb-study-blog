@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to display the search data.</p>
+
+<button onclick="displayResponse()">search</button>
+
+<script>
+    function displayResponse(){
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+            console.log(this.responseText);
+        }
+        });
+        xhr.open("GET", "https://openapi.naver.com/v1/search/webkr.json?query=BIFF");
+        xhr.setRequestHeader("X-Naver-Client-Id", "발급 받은 아이디");
+        xhr.setRequestHeader("X-Naver-Client-Secret", "발급 받은 비밀번호");
+
+        xhr.send();  
+    }
+
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html> 
