@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hair 추천</title> <!--날씨에 따른 헤어스타일 추천-->
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div id="layoutall">
+        <header>
+            <a href="main.html"target="_blank"><h1>&nbsp;MU &nbsp;&nbsp;CHU&nbsp;</h1></a>
+        </header>
+
+        <div class="title" style="text-align: center;">
+            <span>무</span>
+            <span>엇</span>
+            <span>이</span>
+            <span>든</span><br>
+            <span>추</span>
+            <span>천</span>
+            <span>해</span>
+            <span>드</span>
+            <span>림</span>
+        </div>
+        
+        <h3>어떤 머리 색이 어울릴까요?</h3> <br><br>
+        <h4>to be continued....
+          <br><br><br>
+        <div class="spin"></div>
+      </h4>
+      </div>
+      
+        <style>
+          .spin {
+            margin-left: 46%;
+          
+          height: 50px;
+          width: 70px;
+          border-radius: 50%;/*추가 구현 css element*/
+          border:dotted 5px white;/*추가 구현 css element*/
+          -webkit-animation-name: spin;/*추가 구현 css element*/
+          -webkit-animation-duration: 1.5s;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-timing-function:cubic-bezier(1, 0, 0, 1);
+        }
+
+        @-webkit-keyframes spin {/*추가 구현 css element*/
+          from   {  -webkit-transform: rotate(0deg); }
+          to   {  -webkit-transform: rotate(360deg); }
+        }
+        </style>
+
+</body>
+
+</html>
+

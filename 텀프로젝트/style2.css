@@ -1,0 +1,192 @@
+body {
+    background-color: rgb(126, 76, 167);/*최소 개발 기준 css element1*/
+  }
+section{
+    text-align:center;
+    font-size: 20px;/*최소 개발 기준 css element2*/
+    font-family: 'Courier New', Courier, monospace;
+    color:skyblue
+    
+  }
+#layoutall{
+  width: 1200px;/*최소 개발 기준 css element3*/
+  margin:30px auto;
+  padding-top: 15px;
+ 
+}
+#layout1{
+  width:630px;
+  padding:15px;/*최소 개발 기준 css element4*/
+  float:left;
+}
+#layout2{
+  width:500px;
+  padding:20px;
+  float:left;/*최소 개발 기준 css element5*/
+
+}
+
+#layout4all{
+  width: 600px;
+  margin:30px auto;/*최소 개발 기준 css element6*/
+  padding-top: 15px;
+ 
+}
+
+.button{
+  font-size:20px;
+  cursor:progress;/*최소 개발 기준 css element7*/
+  background-color:rgb(231, 224, 247);
+  border-radius: 10px;
+}
+.button:hover{
+  box-shadow: 0 10px 10px 0 rgba(50, 237, 243, 0.692), 0px 13px 15px 15px rgba(255, 251, 0, 0.637);/*최소 개발 기준 css element8*/
+}
+.about{
+  text-align: center;/*최소 개발 기준 css element9*/
+}
+h1 {
+    color : rgb(2, 1, 1);
+    text-align: center;
+    text-decoration:underline;/*최소 개발 기준 css element10*/
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+    text-shadow: 1px 1px 1px #fcfcfc, 
+    
+    2px 2px 2px #bf2aec,
+    3px 3px 3px #e2d62e,
+    4px 4px 4px #46b59b, 
+    7px 7px 0px #017e7f, 
+    10px 10px 0px #052939;
+    
+}
+
+
+
+
+.title span {
+  text-shadow: 2px 2px 2px rgb(67, 52, 77);
+  text-decoration:dotted;
+  font-size: 100px;
+  text-align: center;
+  height:100px;/*최소 개발 기준 css element11*/
+  line-height: 100px;
+  color: #ffffff;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 700;
+
+
+  display: inline-block;
+  margin: 0 .075em;
+  animation: title .8s infinite alternate;
+}
+.title span:nth-child(2) {
+  animation-delay: .2s;
+}
+.title span:nth-child(3) {
+  animation-delay: .4s;
+}
+.title span:nth-child(4) {
+  animation-delay: .6s;
+}
+.title span:nth-child(5) {
+  animation-delay: .8s;
+}
+.title span:nth-child(6) {
+  animation-delay: .10s;
+}
+.title span:nth-child(7) {
+  animation-delay: .12s;
+}
+
+@keyframes title {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+h2{
+  font-size: 100px;
+  text-align: center;
+  height:230px;
+  line-height: 140px;
+  color: #ffffff;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 700;/*최소 개발 기준 css element12*/          
+  }
+h3{
+  
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 45px;
+    color:rgb(163, 224, 116);/*최소 개발 기준 css element13*/
+    text-align:center;
+  }
+
+h4{
+    color:white;
+    text-align:center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 3px;/*최소 개발 기준 css element14*/
+  }
+
+#h5{
+  font-family:Arial;/*최소 개발 기준 css element15*/
+  font-size: 25px;
+  color:white;
+    text-align:center;
+}
+
+
+
+
+#layout4all {
+ 
+  text-align: center;
+    width: 1000px;
+    margin: 20px auto;
+}
+#no1{
+  width:500px;
+  float:left;
+}
+#no2{
+  width:500px;
+  float:left;
+}
+#no3{
+  width:500px;
+  float:left;
+}
+#no4{
+  width:500px;
+  float:left;
+}
+
+#move:hover{
+ transform: scale(2,2);/*추가 구현 css element*/
+}
+
+a:hover{
+  background-color: rgb(236, 100, 195);
+  color:white; 
+}
+.what1:hover{
+  transform: perspective(500px) rotateY(50deg);
+
+}
+.what2:hover{
+  transform: perspective(500px) rotateY(-50deg);
+ 
+}
+
+.what3:hover{
+  transform: perspective(500px) rotateX(50deg);
+}
+.what4:hover{
+  transform: perspective(500px) rotateX(-50deg);
+}
+

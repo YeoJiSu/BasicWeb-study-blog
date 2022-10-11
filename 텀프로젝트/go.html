@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>place 추천</title><!--세 번쨰 갈 지역의 놀거리를 추천 해주는 서비스-->
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div id="layoutall">
+        <header>
+            <a href="main.html"target="_blank"><h1>&nbsp;MU &nbsp;&nbsp;CHU&nbsp;</h1></a>
+        </header>
+
+        <div class="title" style="text-align: center;">
+            <span>무</span>
+            <span>엇</span>
+            <span>이</span>
+            <span>든</span><br>
+            <span>추</span>
+            <span>천</span>
+            <span>해</span>
+            <span>드</span>
+            <span>림</span>
+        </div>
+        
+        <h3>지금 어디를 가볼까요?</h3> <!-- 날씨에 따라 먹을 음식 추천-->
+        <h4>내가 갈 지역을 선택해주세요!</h4>
+        <section>
+            <select style="font-size: 20px;"value="city" id="city" onchange="change()">
+                    <option value="1835848">서울</option>
+                    <option value="1842616">세종</option>
+                    <option value="1843561">인천</option>
+                    <option value="1835224">대전</option>
+                    <option value="1841811">광주</option>
+                    <option value="1835327">대구</option>
+                    <option value="1843126">울산</option>
+                    <option value="1838524" selected>부산</option>
+                    <option value="1841610">경기도</option>
+                    <option value="1843125">강원도</option>
+                    <option value="1845106">충청북도</option>
+                    <option value="1845105">충청남도</option>
+                    <option value="1845789">전라북도</option>
+                    <option value="1845788">전라남도</option>
+                    <option value="1841597">경상북도</option>
+                    <option value="1902028">경상남도</option>
+    
+            </select>
+            </section>
+            <br>
+    
+            <section>
+            <div id="forecast"></div>
+            <div id="ctemp"></div>
+            <div id="clowtemp"></div>
+            <div id="chightemp"></div>
+            <div id="chumidity"></div>
+            <div id="cicon"> </div>
+            <div id="c"></div><br>
+            </section>
+
+        <div id="about" style="color:aquamarine; text-align: center; font-family: 'Courier New', Courier, monospace;">오늘은? </div><br><br>
+
+        <div id="h5"></div>
+        <hr>
+        <div id="layout1">
+            
+            <p1><strong><사진 보기></strong><br><br>
+                <div id="p1"></div>
+            </p1><br>
+        
+        </div>
+        <div id="layout2">
+            <article>
+            <p2><strong><블로그 보기></strong><br><br>
+                <div id="p2"></div>
+            </p2><br>
+            </article>
+        </div>
+        
+    
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    
+    <script>
+    function change(){
+        var lselect = document.getElementById("city");
+        var cityname= lselect.options[lselect.selectedIndex].value;
+        var citytext= lselect.options[lselect.selectedIndex].text;
+
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?id="+cityname+"&appid="+WEATHER_API+"&units=metric", function(data){
+            var $minTemp=data.main.temp_min; //A 요소 내용의 뒤에 B를 추가 A.append(B)
+            var $maxTemp=data.main.temp_max;
+            var $cTemp=data.main.temp;
+            var $humi=data.main.humidity;
+            var $now = new Date($.now());
+            var $cDate=$now.getFullYear()+'년 ' + ($now.getMonth()+1 )+ '월 '+$now.getDate()+'일 부산광역시 '+ $now.getHours() + ':'+ $now.getMinutes();
+            var $wIcon=data.weather[0].icon;
+            var $dis= data.weather[0].description;
+            
+            document.getElementById("forecast").innerHTML = $cDate+" - 날씨예보";
+            document.getElementById("ctemp").innerHTML = "현재온도: "+$cTemp+" &#8451;";
+            document.getElementById("clowtemp").innerHTML = "최저온도: "+$minTemp+" &#8451;";
+            document.getElementById("chightemp").innerHTML = "최고온도: "+$maxTemp+" &#8451;";
+            document.getElementById("chumidity").innerHTML = "습도: "+$humi+" %";
+            document.getElementById("c").innerHTML = $dis;
+            document.getElementById("cicon").innerHTML = '<img src="http://openweathermap.org/img/w/'+ $wIcon+ '.png" id="move">';
+            
+            list=[["01","낮에는 해가 쨍쨍하네요. ","날씨 좋은 날","선크림 바르고 나가세요~~"], 
+            ["02","구름이 아주 약간 있네요.","구름 낀 날","그래도 자외선에 노출되니 선크림을 꼭 발라주세요~"], 
+            ["03","구름이 흩어져 있네요. ","구름 낀 날","그래도 자외선에 노출되니 선크림을 꼭 발라주세요~"], 
+            ["04","하늘에 구름이 많이 껴 있네요.","구름 많이 낀 날", "비가 올 수도 있으니 우산을 챙겨가주세요~"], 
+            ["09","소나기가 내리네요.","비오는 날","비가 오니 우산을 꼭 챙겨나가주세요~"], 
+            ["10","창밖으로 비가 내리네요.","비오는 날","비가 오니 우산을 꼭 챙겨나가주세요~"],
+            ["11","우르르쾅쾅 천둥번개가 치네요.","천둥번개 치는 날","밖에 천둥이 치니 외출을 삼가하는 게 좋긴 하겠어요~"],
+            ["13","하이얀 눈이 내려요.","눈 오는 날","미끄러지지 않도록 주의해주세요~"],
+            ["50","안개가 흐리게 끼여있어요.","뿌연 날","차 운전 주의해주세요!!"]];
+            
+            
+            for (var j=0;j<=8;j++){
+                if ($wIcon==(list[j][0]+"d")||$wIcon==(list[j][0]+"n")){
+                    document.getElementById("about").innerHTML ="오늘은 "+list[j][1]+"<br>"+list[j][2]+", "+list[j][3];
+                
+                    break;
+                }
+            }
+
+            $.ajax({
+                    method: "GET",
+                    url: "https://dapi.kakao.com/v2/search/image",
+                    data: { query: citytext+"놀거리"},
+                    headers: { Authorization: "KakaoAK "+KAKAO_KEY },
+                    success: function(data){// 성공 했을 때 처리
+                    },
+                    error:function(request,status,error){
+                        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+                    }
+            })
+            .done(function (msg) {
+                document.getElementById("p1").innerHTML
+                ="<img src='" + msg.documents[0].thumbnail_url + "'/>"+"<img src='" + msg.documents[1].thumbnail_url + "'/>"+"<img src='" + msg.documents[2].thumbnail_url + "'/>"+"<img src='" + msg.documents[3].thumbnail_url + "'/>"
+                +"<img src='" + msg.documents[4].thumbnail_url + "'/>"+"<img src='" + msg.documents[5].thumbnail_url + "'/>"+"<img src='" + msg.documents[6].thumbnail_url + "'/>"+"<img src='" + msg.documents[7].thumbnail_url + "'/>"
+                +"<img src='" + msg.documents[8].thumbnail_url + "'/>"+"<img src='" + msg.documents[9].thumbnail_url + "'/>"+"<img src='" + msg.documents[10].thumbnail_url + "'/>"+"<img src='" + msg.documents[11].thumbnail_url + "'/>"
+                +"<img src='" + msg.documents[12].thumbnail_url + "'/>"+"<img src='" + msg.documents[13].thumbnail_url + "'/>"+"<img src='" + msg.documents[14].thumbnail_url + "'/>"+"<img src='" + msg.documents[15].thumbnail_url + "'/>";
+            });
+            $.ajax({
+                        method: "GET",
+                        url: "https://dapi.kakao.com/v2/search/blog",
+                        data: { query: citytext+"놀거리"},
+                        headers: { Authorization: "KakaoAK "+ KAKAO_KEY },
+                        success: function(data){// 성공 했을 때 처리
+                        },
+                        error:function(request,status,error){
+                            alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+                        }
+                    })
+            .done(function (msg) {
+                document.getElementById("p2").innerHTML
+                ="<a href='"+msg.documents[0].url+"'><p3>"+1+') '+msg.documents[0].title +"</p3></a><br>"+"<a href='"+msg.documents[1].url+"'><p3>"+2+') '+msg.documents[1].title +"</p3></a><br>"
+                +"<a href='"+msg.documents[2].url+"'><p3>"+3+') '+msg.documents[2].title +"</p3></a><br>"+"<a href='"+msg.documents[3].url+"'><p3>"+4+') '+msg.documents[3].title +"</p3></a><br>" 
+                +"<a href='"+msg.documents[4].url+"'><p3>"+5+') '+msg.documents[4].title +"</p3></a><br>"+"<a href='"+msg.documents[5].url+"'><p3>"+6+') '+msg.documents[5].title +"</p3></a><br>" 
+                +"<a href='"+msg.documents[6].url+"'><p3>"+7+') '+msg.documents[6].title +"</p3></a><br>"+"<a href='"+msg.documents[7].url+"'><p3>"+8+') '+msg.documents[7].title +"</p3></a><br>" ; 
+            });
+        });
+    }
+    </script>
+    
+    <style>
+        p1{text-align:center;
+            color:rgb(255, 255, 255);
+
+        }
+        p2{text-align:center;
+            color:rgb(255, 255, 255);
+            font-size: larger;
+      
+        }
+        p3 {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            text-decoration: none;
+            line-height: 50px; /*css 추가 구현 부분*/
+            color:rgb(255, 255, 255);}
+    </style>
+</body>
+
+</html>

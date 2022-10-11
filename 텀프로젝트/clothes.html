@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!--최소 개발 기준 html element4-->
+<head>
+    <meta charset="UTF-8">
+    <title>clothes 추천</title> <!--첫 번쨰 계절에 맞는 옷을 추천 해주는 서비스-->
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>  <!--최소 개발 기준 html element4-->
+    <link rel="stylesheet" href="style2.css"> 
+</head>
+
+<body>
+    <div id="layoutall">
+        <header>
+            <a href="main.html"target="_blank"><h1>&nbsp;MU &nbsp;&nbsp;CHU&nbsp;</h1></a> <!--Mu chu 웹사이트 이름 정의-->
+        </header>
+
+        <div class="title" style="text-align: center;"> <!--span에 애니메이션 style을 적용할 것임-->
+            <span>무</span>
+            <span>엇</span>
+            <span>이</span>
+            <span>든</span><br>
+            <span>추</span>
+            <span>천</span>
+            <span>해</span>
+            <span>드</span>
+            <span>림</span>
+        </div>
+        
+        <h3>오늘 어떤 옷을 입을까요?</h3> 
+        <h4>내가 사는 곳을 선택해주세요!</h4><!--추가구현-->
+        <section><!--추가구현-->
+        <select style="font-size: 20px;"value="city" id="city" onchange="change()"> <!--box안에 선택한 내용이 바뀌면 change()함수 호출, 이함수는 weather.js에 구현되어 있음--><!--추가구현-->
+                <option value="1835848">서울</option><!--추가구현-->
+                <option value="1842616">세종</option>
+                <option value="1843561">인천</option>
+                <option value="1835224">대전</option>
+                <option value="1841811">광주</option>
+                <option value="1835327">대구</option>
+                <option value="1843126">울산</option>
+                <option value="1838524" >부산</option>
+                <option value="1841610">경기도</option>
+                <option value="1843125">강원도</option>
+                <option value="1845106">충청북도</option>
+                <option value="1845105">충청남도</option>
+                <option value="1845789">전라북도</option>
+                <option value="1845788">전라남도</option>
+                <option value="1841597">경상북도</option>
+                <option value="1902028">경상남도</option>
+        </select><br><br>
+        </section>
+
+        <section><!--날씨 정보를 출력-->
+        <div id="forecast"></div>
+        <div id="ctemp"></div>
+        <div id="clowtemp"></div>
+        <div id="chightemp"></div>
+        <div id="chumidity"></div>
+        <div id="cicon"> </div>
+        <div id="c"></div><br>
+        </section>
+
+   
+        <br><!--날씨 정보에 따른 적절한 메세지를 출력-->
+        <div id="about" style="color:aquamarine; text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 20px;">오늘은? </div><br><br>
+
+        <br>
+        <section><!--성별을 클릭하는 버튼으로 여성을 클릭하면 women()함수가 남성을 클릭하면 men()함수가 호출됨-->
+        <input type="button" class="button" value="여성" onclick="women();"/> <!--button 클릭시 women()함수 호출-->
+        <input type="button" class="button" value="남성" onclick="men();"/><!--button 클릭시 men()함수 호출-->
+        </section>
+        <hr><!--추가구현-->
+
+        <div id="layout1"><!--달에 따른 옷 사진정보를 출력 -->
+            <p1><strong><사진 보기></strong><br><br><!--추가구현-->
+                <div id="p1"></div>     
+            </p1><br>  
+        </div>
+
+        <div id="layout2"><!--달에 따른 옷 블로그정보를 출력 -->
+            <article>
+            <p2><strong><블로그 보기></strong><br><br><!--추가구현-->
+                <div id="p2"></div>
+            </p2><br>
+            </article>
+        </div>
+        
+    
+    </div>
+
+    <script src="weather.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+
+    var $now = new Date($.now());
+    
+ 
+
+    
+function why(){ // why()라는 함수는 성별과 해당 월에 따른 옷의 이미지와 블로그 제목을 출력해주는 함수임.
+         $.ajax({
+                    method: "GET",
+                    url: "https://dapi.kakao.com/v2/search/image",
+                    data: { query: $gender},
+                    headers: { Authorization: "KakaoAK "+KAKAO_KEY },
+                    success: function(data){// 성공 했을 때 처리
+                    },
+                    error:function(request,status,error){
+                        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+                    }
+
+                })
+          .done(function (msg) {//알맞은 msg 값이 들어왔을 때 이미지를 출력하고 블로그 제목을 출력하는 수행을 하는 동작입니다.
+             
+            document.getElementById("p1").innerHTML
+            ="<img src='" + msg.documents[0].thumbnail_url + "'/>"+"<img src='" + msg.documents[1].thumbnail_url + "'/>"+"<img src='" + msg.documents[2].thumbnail_url + "'/>"+"<img src='" + msg.documents[3].thumbnail_url + "'/>"
+            +"<img src='" + msg.documents[4].thumbnail_url + "'/>"+"<img src='" + msg.documents[5].thumbnail_url + "'/>"+"<img src='" + msg.documents[6].thumbnail_url + "'/>"+"<img src='" + msg.documents[7].thumbnail_url + "'/>"
+            +"<img src='" + msg.documents[8].thumbnail_url + "'/>"+"<img src='" + msg.documents[9].thumbnail_url + "'/>"+"<img src='" + msg.documents[10].thumbnail_url + "'/>"+"<img src='" + msg.documents[11].thumbnail_url + "'/>"
+            +"<img src='" + msg.documents[12].thumbnail_url + "'/>"+"<img src='" + msg.documents[13].thumbnail_url + "'/>"+"<img src='" + msg.documents[14].thumbnail_url + "'/>"+"<img src='" + msg.documents[15].thumbnail_url + "'/>";
+
+       
+                      
+                });
+        $.ajax({
+                    method: "GET",
+                    url: "https://dapi.kakao.com/v2/search/blog",
+                    data: { query: $gender},
+                    headers: { Authorization: "KakaoAK "+KAKAO_KEY },
+                    success: function(data){// 성공 했을 때 처리
+                    },
+                    error:function(request,status,error){
+                        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+                    }
+                })
+          .done(function (msg) {
+              console.log();
+            document.getElementById("p2").innerHTML
+            ="<a href='"+msg.documents[0].url+"'><p3>"+1+') '+msg.documents[0].title +"</p3></a><br>"+"<a href='"+msg.documents[1].url+"'><p3>"+2+') '+msg.documents[1].title +"</p3></a><br>"
+            +"<a href='"+msg.documents[2].url+"'><p3>"+3+') '+msg.documents[2].title +"</p3></a><br>"+"<a href='"+msg.documents[3].url+"'><p3>"+4+') '+msg.documents[3].title +"</p3></a><br>" 
+            +"<a href='"+msg.documents[4].url+"'><p3>"+5+') '+msg.documents[4].title +"</p3></a><br>"+"<a href='"+msg.documents[5].url+"'><p3>"+6+') '+msg.documents[5].title +"</p3></a><br>" 
+            +"<a href='"+msg.documents[6].url+"'><p3>"+7+') '+msg.documents[6].title +"</p3></a><br>"+"<a href='"+msg.documents[7].url+"'><p3>"+8+') '+msg.documents[7].title +"</p3></a><br>" ; 
+                });
+    
+            }
+        
+    var k;//해당 월이 몇월인지 변수 k에 저장한다.
+    for (k=1;k<=12;k++){
+        if (($now.getMonth()+1)==k){
+            break;
+        }
+    }
+    var $gender;// 성별 변수
+   
+    window.women=function(){// gender 변수를 지정하고, why라는 함수를 호출하여 gender 인자 값이 why()함수에서 사용되어 알맞게 출력이 된다. 
+        $gender="여자 "+k+"월 옷코디";
+        why();
+        
+    }
+    window.men=function(){
+        $gender="남자 "+k+"월 옷코디";
+        why();
+    }
+
+        
+        
+    
+    </script>
+    <style>
+        p1{text-align:center;
+            color:rgb(255, 255, 255);
+
+        }
+        p2{text-align:center;
+            color:rgb(255, 255, 255);
+            font-size: larger;
+           
+      
+        }
+        p3 {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            text-decoration: none;
+            line-height: 50px;
+            color:rgb(255, 255, 255);}
+        
+    </style>
+</body>
+
+</html>
