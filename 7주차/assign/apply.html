@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>7주차_어싸인</title>
+    <link rel="stylesheet" href="apply.css">
+    <style>	
+        /*task 1    했음
+        sample 이미지를 보고 아래 효과를 적용하기 위해 
+        ~지우고 추가~를 지우고 내용을 추가하세요 */
+        label[for=txt_name], [for=txt_birth], [for=""], [for= r_gender_man], [for= r_gender_woman], [for=ck_c], [for=ck_python], [for=ck_r], [for=ck_app], [for=txt_content]{
+            display : inline-block ;
+            height : 30px;
+            font-weight: bold;
+            /*
+                hint
+                label의 각각 성명, E-maill, 생년월일, 성별, 관심부야, 기타 부분
+            */
+        }
+        
+        /*input 효과 1*/
+        /*task 2    했음
+        sample 이미지와 아래 코드의 주석을 보고 아래 효과를 적용하기 위해 
+        ~지우고 추가~를 지우고 내용을 추가하세요 */
+        input[type=text], [type=email], [type=number]{
+            width : 100%;
+            height : 40px;
+            border : 1px solid #8C8C8C;
+            box-sizing: border-box;
+            padding : 5px;
+        }
+        
+        /*input 효과 2*/
+        /*task3     했음
+        sample 이미지와 아래 코드의 주석을 보고 아래 효과를 적용하기 위해 
+        ~지우고 추가~를 지우고 내용을 추가하세요 */
+        input[type="submit"], [type="reset"]{
+            background-color : #73AD21;
+            width : 45%;
+            border : none;
+            padding : 10px;
+            margin : 5px;
+            color : white ;
+        }
+
+    </style>
+</head>
+<body>
+<form name="myform" method="get" action="ex.php">
+	<div class="box1">
+		개인 신청 자료
+	</div>
+	<div class="box2">
+		<p>
+            <!-- /*input 효과 1*/-->
+            <!--task4-1     했음
+                input 효과 1 적용을 위해 ~지우고 추가~ 부분 변경 
+            -->
+			<label for="txt_name">성명</label><br/>
+			<input type="text" name="txt_name" id="txt_name" placeholder="성명 입력"> 
+		</p>
+		<p>
+            <!-- /*input 효과 1*/-->
+            <!--task4-1       했음
+                input 효과 1 적용을 위해 ~지우고 추가~ 부분 변경 -->
+            <!--task4-2       했음
+                e-mail에 알맞은 입력값을 제출할 수 있도록 ~지우고 추가 또는 지우기~ 부분 변경 
+            -->
+			<label for="txt_name">E-mail</label><br/>
+			<input type="email" name="txt_email" id="txt_email" placeholder="email@email.email"> 
+		</p>
+		<p>
+			<label for="txt_birth">생년월일</label><br/>
+            <!-- /*input 효과 1*/-->
+            <!--task4-1     했음
+                input 효과 1 적용을 위해 ~지우고 추가~ 부분 변경 -->
+            <!--task4-2     했음
+                출생 년에 알맞은 입력값을 제출할 수 있도록 ~지우고 추가 또는 지우기~ 부분 변경 
+                단, 입력 받을 수 있는 숫자가 4자리 수여야 함.
+            -->
+			<input type="text" name="txt_year" id="txt_year"  pattern="\d{4}" placeholder="년">			
+           
+            <select name="sel_mon" id="sel_mon" >
+            <!--task5       했음
+                출생 월에 알맞은 입력값을 제출할 수 있도록 
+                sample 이미지처럼 drop-down list 형식 적용하도록 
+                ~지우고 추가~ 부분 변경 -->
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7" selected>7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+			</select>
+            
+            <!-- /*input 효과 1*/-->
+            <!--task4-1     했음
+                input 효과 1 적용을 위해 ~지우고 추가~ 부분 변경 -->
+            <!--task4-2     했음
+                출생 일에 알맞은 입력값을 제출할 수 있도록 ~지우고 추가 또는 지우기~ 부분 변경 
+                단, 입력 받을 수 있는 숫자는 1~31 이어야 함.
+            -->
+			<input type="number" name="txt_day" id="txt_day" maxlength=2 placeholder="일" min=1 max=31>
+		</p>
+		<p>
+			<label for="">성별</label>
+			<span class="box3">
+            <!--task6       했음
+                버튼 중 하나만 선택 하도록 ~지우고 추가~ 부분 변경 -->
+				<label for="r_gender_man">남</label> 
+				<input type="radio" name="r_gender" id="r_gender_man" value="남"> 
+				<label for="r_gender_woman">여</label>
+				<input type="radio" name="r_gender" id="r_gender_woman" value="여"> 
+			</span>
+		</p>
+		<p>
+			<label for="">관심분야</label>
+			<span class="box3">
+            <!--task7       했음
+                버튼 중 여러개 선택 가능 하도록 ~지우고 추가~ 부분 변경 -->
+                <label for="ck_c">C</label> 
+                <input type="checkbox" name="ck_c" id="ck_c" value="C"> 
+                
+                <label for="ck_python">파이썬</label> 
+                <input type="checkbox" name="ck_python" id="ck_python" value="python"> 
+                
+                <label for="ck_r">R</label> 
+                <input type="checkbox" name="ck_r" id="ck_r"  value="AppInventor">
+                
+                <label for="ck_app">앱인벤터</label> 
+                <input type="checkbox" name="ck_app" id="ck_app">
+            </span>
+		</p>
+		<p>
+            <!--task8       했음
+                 여러줄의 텍스트 입력 가능 하도록 ~지우고 추가~ 부분 변경 -->
+			<label for="txt_content">기타</label><br/>
+			<textarea name="txt_content" id="txt_content">
+            </textarea>
+		</p>
+		<p>
+            <!-- /*input 효과 2*/-->
+            <!--task9       했음
+                input 효과 2를 적용하고 버튼을 누르면 제출 되도록 
+                ~지우고 추가~ 부분 변경 
+                (task3과 연관)
+                -->
+			<input type="submit" value="확인">
+            <!--task10      했음
+                input 효과 2를 적용하고 버튼을 누르면 제출 되도록 
+                ~지우고 추가~ 부분 변경 
+                (task3과 연관)
+                -->
+			<input type="reset" value="취소">
+		</p>
+	</div>
+	
+	 
+</form>
+</body>
+</html>

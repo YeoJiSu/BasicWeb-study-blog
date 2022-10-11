@@ -1,0 +1,43 @@
+form {
+    width : 50%; 
+} 	
+
+textarea {
+    width : 100%;
+    height : 80px;
+}	
+
+
+#txt_year, #sel_mon, #txt_day {
+    width : 30%;
+    height : 40px;
+}	
+#sel_mon {
+    margin-left : 10px;
+    margin-right : 10px;
+}	
+.box1 {
+    border-radius: 10px;
+    border: 2px solid #73AD21;
+    background-color : #73AD21;
+    padding: 10px; 
+    margin : 10px;
+    width: 400px;
+    height: 20px; 
+    color : white;
+    text-align : center;
+}
+.box2 {		 
+    padding: 10px; 
+    margin : 10px;
+    width: 400px;  
+} 	
+.box3 {
+    border : 1px solid #8C8C8C;
+    width : 100%;
+    height : 40px;
+    display : inline-block;
+    padding : 5px 40px;
+    box-sizing : border-box;
+
+} 
