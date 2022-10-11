@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>11week 어텐</title>
+<style>
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		background-color : #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 300px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.box2 { 
+		border: 2px solid #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 300px; 
+		height : 150px;
+		text-align : center;
+	}
+	.box3 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 300px;
+		height:50px; 
+		text-align : center;
+	}
+	.pc1 {
+		width : 25%;
+		text-align : center;
+		float : left ;
+	}
+	.pc2 {
+		width : 5%;
+		text-align : center;
+		float : left ;
+	}
+	.pc3 {
+		clear : both ;
+		width : 95%;
+		padding-left : 20px;
+		text-align : left;
+		background-color : #E4F7BA;
+		color : red ;
+	}
+	input[type=button]{
+		width : 40px;
+		height : 30px;
+	}	
+	#msg {
+		font-size : 20px
+	}
+	
+</style>
+<script>
+	function calcAdd(){
+		/*[TODO] calculate substraction of txt1 and txt2 */
+		/*[TODO] call printResult function with arguemnt(result) */
+		var num1 = document.getElementById("tx1").value;
+		var num2 = document.getElementById("tx2").value;
+		document.getElementById("msg").innerHTML = 
+		parseInt(num1)+parseInt(num2);
+	}
+	function calcSub(){
+		/*[TODO] calculat multiplication of txt1 and txt2 */
+		/*[TODO] call printResult function with arguemnt(result) */
+		var num1 = document.getElementById("tx1").value;
+		var num2 = document.getElementById("tx2").value;
+		document.getElementById("msg").innerHTML = 
+		parseInt(num1)-parseInt(num2);
+	}
+	function calcMul(){
+		/*[TODO] calculat multiplication of txt1 and txt2 */
+		/*[TODO] call printResult function with arguemnt(result) */
+		var num1 = document.getElementById("tx1").value;
+		var num2 = document.getElementById("tx2").value;
+		document.getElementById("msg").innerHTML = 
+		parseInt(num1)*parseInt(num2);
+	}
+	function calcDiv(){
+		/*[TODO] calculate division of txt1 and txt2 */
+		/*[TODO] call printResult function with arguemnt(result) */
+		var num1 = document.getElementById("tx1").value;
+		var num2 = document.getElementById("tx2").value;
+		document.getElementById("msg").innerHTML = 
+		parseInt(num1)/parseInt(num2);
+	}
+
+
+</script>
+
+</head>
+<body>
+	<form name="myform">
+	<div class="box1">
+		간단한 계산기
+	</div>
+	<div class ="box2">		
+			<p class="pc1">
+				<input type="text" id="tx1" placeholder="숫자1" size="5" >
+			</p>	
+			<p class="pc1">
+				<input type="text" id="tx2" placeholder="숫자2" size="5">
+			</p>
+			<p class="pc3">
+				<!-- [TODO] adds an attrribute to 
+				call corresponding JS function -->
+				<input type="button" onclick="calcAdd()" value="+" >
+				<input type="button" onclick="calcSub()" value="-">
+				<input type="button" onclick="calcMul()" value="*">
+				<input type="button" onclick="calcDiv()" value="/">
+			</p>		
+	</div>
+	</form>
+	<div class="box3">
+		<div id="msg"> 
+		</div>
+	</div>
+</body>
+</html>

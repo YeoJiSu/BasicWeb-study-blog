@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>피보나치 수열</title>
+
+<style>
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		background-color : #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.box2 {		 
+		padding: 10px; 
+		margin : 10px;
+		width: 400px; 
+		text-align : center;
+	} 
+	#msg {
+		margin : 10px;
+		padding: 10px;
+		font-size : 14px;
+		color : red;
+		text-align : left;
+	}
+	#msg2 {
+		margin : 10px;
+		padding: 10px;
+		font-size : 14px;
+		color : blue;
+		text-align : left;
+	}
+	#msgimg {
+		width : 400px; 
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		text-align : center;
+	}
+	.b1 {
+		width : 100px;
+		height :100px;
+		font-size : 30px;
+		text-align : center;
+	}
+
+	
+	.card1 {
+		width : 50px;
+		height :60px;
+		border: 2px solid #73AD21;
+		border-radius: 5px;
+		margin: 5px;
+		padding-top:6px;
+		font-size: 25px;
+		float: left;
+	}
+	
+	.card2 {
+		width : 50px;
+		height :60px;
+		background-color: yellow;
+		border: 2px solid #73AD21;
+		border-radius: 5px;
+		margin: 5px;
+		padding-top:6px;
+		font-size: 25px;
+		float: left;
+	}
+
+	
+	.cardClear {
+		clear : both;
+	}
+</style>
+<script>
+	var str1 ; // fib_recursive 의 피보나치 수열 계산 과정 출력을 위한 변수
+	var str2 ; // fib_loop의 피보나치 수열 계산 과정 출력을 위한 변수
+
+	/*
+		recursive funciton을 통해 fibonacci 수열을 계산
+		피보나치 수열의 각 항이 계산될 때 마다 몇번째 항이 계산되었는지를
+		str1 변수에 concatenate 시켜야 함. (출력 결과는 과제 설명 자료 참조)
+		결과적으로 num 번째 피보나치 수열 항 값을 반환해야 함.
+	*/
+	function fib_recursive(num){
+		str1+=num+" ";
+		if (num <= 1) {return num;}
+    	return fib_recursive(num-1)+ fib_recursive(num-2); 
+		
+	}
+	
+	/*
+		loop statement를 이용하여 fibonacci 수열을 계산
+		피보나치 수열의 각 항이 계산될 때 마다 몇번째 항이 계산되었는지를
+		str2 변수에 concatenate 시켜야 함. (출력 결과는 과제 설명 자료 참조)
+		결과적으로 num 번째 피보나치 수열 항 값을 반환해야 함.
+	*/
+	function fib_loop(num){
+		
+		let f = new Array(num+2); // 1 extra to handle case, n = 0
+        let i;
+        /* 0th and 1st number of the series are 0 and 1*/
+        f[0] = 0;
+        f[1] = 1;
+        for (i = 0; i <= num; i++)
+        {
+            /* Add the previous 2 numbers in the series
+            and store it */
+			str2+=i+" ";
+            f[i+2] = f[i+1] + f[i];
+			
+        }
+        return f[num];
+		
+	}
+
+	function show(){
+		// TODO: input check : N을 입력하세요. 
+		// TODO: error 발생시 fucus 이동 시킬 것
+
+
+		var num = parseInt(myform.txt1.value);
+		if (num >10 || num<0){
+			alert(" N은 (0 <= N <= 10)");
+			document.myform.txt1.focus();
+			
+		}
+		else if (myform.txt1.value==''){
+			alert(" N을 입력하세요.");
+			document.myform.txt1.focus();
+		}
+		else {
+			var res;
+			str1 = "recursive 방식: ";
+			res = fib_recursive(num);
+			str1 = str1 + ": " + res;
+			document.getElementById("msg").innerHTML = str1;
+
+			str2 = "loop 방식: ";
+			res = fib_loop(num);
+			str2 = str2 + ": " + res;
+			document.getElementById("msg2").innerHTML = str2;
+		}
+
+		//TODO: input check : N은 (0 <= N <= 10)
+		//TODO: error 발생시 focus 이동 시킬 것
+
+		
+	}
+
+	function showClear(){
+		str1 = "recursive 방식: ";
+		str2 = "loop 방식: ";
+		document.getElementById("msg").innerHTML = str1 ;
+		document.getElementById("msg2").innerHTML = str2 ;
+		myform.reset();
+	}
+</script>
+</head>
+<body>  
+<form name="myform">
+	<div class="box1">
+		피보나치 수열
+	</div>
+	<div class="box2">
+		N(입력) <input type="text" name="txt1" size="6">
+		<input type="button" value="수열생성" onclick="show()">
+		<input type="button" value="지우기" onclick="showClear()">
+	</div> 	 
+	<div id="msg">
+	</div>
+	<div id="msg2">
+	</div>
+</form>
+</body>
+</html>
