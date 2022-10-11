@@ -1,0 +1,21 @@
+/*
+task 2) 메뉴바 효과 바꾸기
+    2-1) title, author, 1행~20행 클릭시 각 해당 영역으로 jump
+    2-2) 메뉴바에 마우스 올리기 전/후 효과 다르게 
+        - 샘플 task2의 예제참고, 
+        - 단 색/효과 자유
+        - 마우스 올리기 전/후 다른지가 중요
+    2-3) 링크 클릭 전/후 효과 다르게
+    
+*/
+a{
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+}
+a:hover{
+    color:rgb(223, 223, 223);
+    background-color: rgb(255, 67, 183);
+}
+a:visited{
+    color: red;
+}

@@ -1,0 +1,33 @@
+/*
+task 3) 본문 수정하기
+    - 단, 효과 적용을 위해 html body 안 수정 금지.
+*/
+
+.pseudoclass{
+    color:black;
+}
+/*시의 제목 부분만 바로 아래 효과 적용하기*/
+.pseudoclass h2{
+    font-style: italic;
+}
+/*시의 작가 부분만 바로 아래 효과 적용하기*/
+.pseudoclass p:only-child{
+    text-align: right;
+    font-weight: bolder;
+}
+
+/*시의 각 연의 짝수 행만 바로 아래 효과 적용하기
+- hint : 행 = <p>, 짝수 = even = 2n
+*/
+
+.pseudoclass p:nth-of-type(even){
+    text-shadow: 2px 2px 2px green;
+}
+
+    /*시의 각 연의 3번째 행만 바로 아래 효과 적용하기
+    - hint : 행 = <p>
+    */
+    
+.pseudoclass p:nth-of-type(3){
+    text-decoration: underline dotted;
+}
