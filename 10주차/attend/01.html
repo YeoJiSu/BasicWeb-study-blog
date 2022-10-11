@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <hdead>
+        <title>
+            10주차
+        </title>
+        <!--코드추가 task 1-->
+        <script src="js01.js"></script>
+        <!--변경금지-->
+        <script>
+        function digit8(v) { // 숫자 v를 8비트 2진수로 변환
+            var str="";
+            for(i=0; i<8; i++, v<<=1) {
+                if((v & 0x80)) str += "1";
+                else str += "0";
+            }
+            return str;
+        }
+        </script>
+        <!--변경금지-->
+    </hdead>
+    <body>
+        <h1>10주차 어텐</h1>
+        <hr>
+        <h2>task 1</h2>
+        <p>마우스를 올렸을 때 이미지가 바뀌게 만들어 봅시다. <br>
+            hint : 주어진 js01.js에 효과에 대한 코드가 작성되어 있습니다.</p>
+        <!--변경금지-->
+        <img src=".\딸기.png" alt="이미지오류"
+             onmouseover="over(this)"
+             onmouseout="out(this)">
+         <!--변경금지-->       
+        <br>
+        <hr>
+        <br>
+        <h2>task 2</h2>
+        <p>알맞은 데이터 변수 만들어 출력하기<br>
+            hint : document.write() 사용하기
+        </p>        
+        <script>
+            //코드추가
+            //변수이름을 알아보기 쉽게 선언해 봅시다.
+
+            var intvalue = 1;
+            var stringvalue = "문자열";
+            var booleanvalue= true;
+
+            document.write("괄호안에 말은 그대로 출력 됩니다." + "<br>");
+            document.write("실수 데이터 출력하기(10진수) : " + intvalue + "<br>");
+            document.write("문자열 데이터 출력하기 : " + stringvalue + "<br>");
+            document.write("boolean 데이터 출력하기 : " + booleanvalue + "<br>");
+
+        </script>
+
+        <br>
+        <br>
+        <hr>
+        <h2>연산자와 변수를 활용하여 결과 값을 만드세요. grading 시 코드 확인 합니다</h2>
+            <p>
+                정답의 숫자나, 문자열을 직접 적으면 감점입니다.
+                예를들어, x>>>1 의 값을 출력하는 부분이 00000101을 적으면 감점입니다.
+                document.write("00000101"); 이런 식으로 출력 되면 감점입니다!!!
+            </p>
+        <hr>
+        <br>
+        <br>
+        <h2>task 3 산술 연산자 활용 하기</h2>
+        <script>
+            //코드추가
+            var x = 65;
+            var result = 121 + x * 10 / 4 - 3;
+            var divvalue = x/10;
+            var modvalue = x%10;
+            document.write("x : " + x + "<br>" + "<br>");
+            document.write("121 + x*10/4 - 3 = " + result + "<br>");
+            document.write("x/10 = " + divvalue + "<br>");
+            document.write("x%10 = "+ modvalue+ "<br>")
+        </script>
+
+        <br>
+        <hr>
+        <br>
+        <h2>task 4 증감/대입 연산자 활용 하기</h2>
+        <p> <br></p>
+        <script>
+            //코드추가
+            var x=10, y = 10, z =10;
+            document.write("x="+x+", y="+y+", z="+z+"<br><br>");
+            x+=3; y*=3; z%=2;
+            document.write("x += 3; 실행후, x= " + x);
+            document.write("<br>");
+            document.write("y *= 3; 실행후, y= " + y);
+            document.write("<br>");
+            document.write("z %= 2; 실행후, z= " + z);
+            document.write("<br>" + "<br>");
+
+            var p=5, q=5, r=5, s=5;
+            document.write("p="+p+", q="+q+", r="+r+", s= "+s+"<br><br>");
+            document.write("p++; 실행후, p= "+ p++);
+            document.write("<br>");
+            document.write("q--; 실행후, q= " + q--);
+            document.write("<br>");
+            document.write("++r; 실행후, r= " + ++r);
+            document.write("<br>");
+            document.write("--s; 실행후, s= " + --s);
+            document.write("<br>");
+        </script>
+        <br>
+        <hr>
+        <br>
+        <h2>task 5 비교 연산자 활용 하기</h2>
+        <p><br></p>
+        <script>
+            //코드추가
+            var x=87; y=86;
+            document.write("x = "+x+", y = "+y+"<br>"+"<br>");
+            document.write("x == y : "+ (x==y) +"<br>");
+            document.write("x != y : "+ (x!=y) +"<br>");
+            document.write("x >= y : "+ (x>=y) +"<br>");
+            document.write("x > y : "+ (x>y) +"<br>");
+            document.write("x <= y : "+ (x<=y) +"<br>");
+            document.write("x < y : "+ (x<y) +"<br><br><br>");
+            document.write("x-- == y : "+ ((x--) ==y) +"<br>");
+            document.write("x++ == y : "+ ((x++) ==y) +"<br>");
+            document.write("x == ++y : "+ (x==(++y)) +"<br>");
+            document.write("x == y++ : "+ (x==(y++)) +"<br>");
+        </script>
+        <br>
+        <hr>
+        <br>
+        <h2>task 6 논리 연산자 활용 하기</h2>
+        <p><br></p>
+        <script>
+            //코드추가
+            var x=true, y=false;
+            document.write("x= "+x+", y= "+y+"<br><br>");
+            document.write("x&&y : "+(x&&y)+"<br>");
+            document.write("x||y : "+(x||y)+"<br>");
+            document.write("!x : "+(!x)+"<br><br>");
+            document.write("(3>2) && (3<4)  : "+((3>2) && (3<4))+"<br>");
+            document.write("(3==-2) || (-1<0)  : "+((3==-2) || (-1<0))+"<br>");
+        </script>
+        <br>
+        <hr>
+        <br>
+        <h2>task 7 조건 연산자 활용 하기</h2>
+        <p><br></p>
+        <script>
+            //코드추가
+            var x=3; y=5;
+            document.write("x = "+x+", y = "+y+"<br>"+"<br>");
+            document.write("두수의 차이: "+ ((x>y)?(x+y):(x-y)));
+        </script>
+        <br>
+        <hr>
+        <br>
+        <h2>task 8 비트 연산자 활용 하기</h2>
+        <p><br></p>
+        <script>
+            //코드추가
+            var x=11, y=5;
+            document.write("x="+x+", y="+y+"<br>");
+            document.write("x :         "+ digit8(x)+"<br>");
+            document.write("y :         "+ digit8(y)+"<br><br>");
+            document.write("x & y :   "+ digit8(x&y)+"<br>");
+            document.write("x | y :   "+ digit8(x|y)+"<br>");
+            document.write("x ^ y :   "+ digit8(x^y)+"<br>");
+            document.write("~x :   "+ digit8(~x)+"<br><br>");
+            document.write("x << 2 :   "+ digit8(x << 2)+" ("+(x<<2)+") "+"<br>");
+            document.write("x >> 2 :   "+ digit8(x >> 2)+" ("+(x>>2)+") "+"<br>");
+            document.write("x >>> 2 :   "+ digit8(x >>> 2)+" ("+(x>>>2)+") ");
+
+        </script>
+
+        <br>
+        <hr>
+        <br>
+        <h2>task 9 문자열 연산자 활용 하기</h2>
+        <p><br></p>
+        <script>
+            //코드추가
+            document.write("xyz"+"11"+"<br>");
+            document.write("11"+"xyz"+"<br>");
+            document.write("11"+"35"+"<br>");
+            document.write(11+22+"<br>");
+            document.write(11+22+"xyz"+"<br>");
+            document.write("xyz"+11+22+"<br><br>");
+
+            var name= "kitae";
+            document.write("문자열1 : "+name+"<br>");
+            document.write("문자열1과 kitae 같나요? : ");
+            document.write((name=="kitae")+"<br>");
+            document.write("문자열1과 park 같나요? : ");
+            document.write((name=="park"));
+
+
+        </script>
+        <br>
+        <hr>
+        <br>
+        <h2>task 10 지역변수 전역변수 비교하고 출력하기</h2>
+        <p><br></p>
+        <script>
+            //변경 금지
+            var valuethatsamename = 100;
+            //변경금지
+            function callglobalvarNlocalvar(){
+                var valuethatsamename = 1;
+                document.write("지역변수 x="+ valuethatsamename+"<br>");
+            }
+            //코드추가
+            callglobalvarNlocalvar();
+            document.write("전역변수 x="+ valuethatsamename);
+
+
+        </script>
+        <br>
+        <hr>
+        <br>
+    </body>
+</html>
