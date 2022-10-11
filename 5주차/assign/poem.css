@@ -1,0 +1,80 @@
+#makefontstyle1{
+    /*
+    font Properties 4가지 추가
+    */
+    text-align: left;
+    color:rgb(0, 0, 0);
+    font-size: 10px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight:600;
+    font-style:noraml;
+    padding-bottom: 20px;
+    
+}
+
+#makefontstyle2{
+    /*
+    font Properties 4가지 추가
+    makefontstyle1과 property 중복 가능/그러나 보이는건 서로 달라야
+    */
+    text-align: left;
+    color:rgba(0, 0, 0, 0.63);
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight:100;
+    font-style:italic;
+    padding-bottom: 20px;
+}
+
+.maketextstyle1{
+    /*
+    text poperties 중 4가지 추가 ->color, letter spacing, shadow, decoration, align
+    
+    */
+    color:rgb(92, 0, 92);
+    letter-spacing: 5px;
+    text-shadow: rgb(252, 132, 226) 2px 0 5px;
+    text-decoration-color: pink;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 2px; 
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    padding-bottom: 20px;
+    
+   
+    }
+
+.maketextstyle2{
+        /*
+        text poperties 중 4가지 추가
+        maketextstyle1과 property 중복 불가능
+        ->  direction, word-spacing, text-indent, line-height, text-transform
+        */
+    direction: ltr;
+    word-spacing: 2px;
+    text-indent:0px;
+    line-height:0.5;
+    text-transform: none;
+    font-weight:100;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    padding-bottom: 10px;
+    
+    }
+
+
+
+/*////////////////////////////////////////////*/
+/*변경금지*/
+.darkbackground{
+    background-color: black; 
+    color: white;
+    text-align: center;
+    font-size: larger;
+    margin: 50px,10px,50px,10px;
+}
+/*////////////////////////////////////////////*/
+/*변경금지*/
