@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "e8804538-4c93-4521-9d41-af6a1b436490",
+		"name": "[202055565] 공공데이터-기상청-동네예보조회서비스",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=KrKaYt5NxwChtIKlwqWM%2FmxLzq%2Be%2Fd%2Fl%2ByvQnEmSv0qXadGykTaTRuPYpRQGMRxeOp%2FR3b1aHYvTsBjfHgIK5Q%3D%3D&numOfRows=10&pageNo=1&dataType=XML&base_date=20210422&base_time=1100&n",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=KrKaYt5NxwChtIKlwqWM%2FmxLzq%2Be%2Fd%2Fl%2ByvQnEmSv0qXadGykTaTRuPYpRQGMRxeOp%2FR3b1aHYvTsBjfHgIK5Q%3D%3D&numOfRows=10&pageNo=1&dataType=XML&base_date=20210422&base_time=1100&nx=97&ny=77",
+					"protocol": "http",
+					"host": [
+						"apis",
+						"data",
+						"go",
+						"kr"
+					],
+					"path": [
+						"1360000",
+						"VilageFcstInfoService",
+						"getUltraSrtFcst"
+					],
+					"query": [
+						{
+							"key": "serviceKey",
+							"value": "발급받은 서비스키 작성하기"
+						},
+						{
+							"key": "numOfRows",
+							"value": "10"
+						},
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "dataType",
+							"value": "XML"
+						},
+						{
+							"key": "base_date",
+							"value": "20210422"
+						},
+						{
+							"key": "base_time",
+							"value": "1100"
+						},
+						{
+							"key": "nx",
+							"value": "97"
+						},
+						{
+							"key": "ny",
+							"value": "77"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
