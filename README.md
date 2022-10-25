@@ -3,8 +3,7 @@
 > ### 부산대학교 2학년 1학기 권동현 교수님의 『인터넷과웹기초』 강의의 실습 내용을 정리한 저장소입니다.
 > 📌 인터넷과 웹에 대한 기본적인 구조를 이해하고, 클라이언트 사이드 프로그래밍을 하며, 오픈 API를 이용해 웹페이지를 개발합니다.
 
-## 📎 개인적으로 공부한 express + nodejs
-[노션으로 보기](https://www.notion.so/EXPRESS-f872b0754857407c8f3843b8b930cce3)
+## 📎 [개인적으로 공부한 express + nodejs](https://www.notion.so/EXPRESS-f872b0754857407c8f3843b8b930cce3)
 
 ## 📎 3주차
 ### 📽 [attend 실행영상](https://photos.app.goo.gl/eFvGnsPJKJ4KUdZq7)
